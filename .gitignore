@@ -1,0 +1,4 @@
+// Obviously don't commit `.class` files.
+*.class
+// Obviously don't commit `.exe` files (I ignore the Reddit drama).
+*.exe
