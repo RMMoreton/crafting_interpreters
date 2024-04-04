@@ -2,17 +2,21 @@
 
 #include "linked_list.c"
 
-void main() {
-    LinkedList* l = NULL;
+int main() {
+    struct linked_list* l = ll_new();
     char* c;
-    assert(Push(&l, "a") == 0);
-    assert(Push(&l, "b") == 0);
-    assert(Push(&l, "c") == 0);
-    assert(Pop(&l, &c) == 0);
+    assert(ll_push_left(l, "a") == 0);
+    assert(ll_push_left(l, "b") == 0);
+    assert(ll_push_left(l, "c") == 0);
+    assert(ll_pop_left(l, &c) == 0);
     assert('c' == *c);
-    assert(Pop(&l, &c) == 0);
+    free(c);
+    assert(ll_pop_left(l, &c) == 0);
     assert('b' == *c);
-    assert(Pop(&l, &c) == 0);
+    free(c);
+    assert(ll_pop_left(l, &c) == 0);
     assert('a' == *c);
-    FreeAll(&l);
+    free(c);
+    ll_free_all(l);
+    return 0;
 }
