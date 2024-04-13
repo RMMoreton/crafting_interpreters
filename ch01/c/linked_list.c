@@ -68,27 +68,22 @@ LLE ll_push_at(struct linked_list* l, char* s, size_t i) {
     if (l == NULL || s == NULL) {
         return LLE_NULL_ARGUMENT;
     }
-    // Can we fit a new node?
     if (l->len == SIZE_MAX) {
         return LLE_SIZE;
     }
-    // Can we push a node at the requested position?
     if (i < 0 || i > l->len) {
         return LLE_INDEX;
     }
-    // Make a new node.
     n = (struct _node*)malloc(sizeof(struct _node));
     if (n == NULL) {
         return LLE_SYSTEM;
     }
-    // Set up the node.
     n->data = strdup(s);
     if (n->data == NULL) {
         // We don't allow pushing NULL data, so this must be a malloc failure.
         free(n);
         return LLE_SYSTEM;
     }
-    // Push the node into the list.
     n_at = ll_node_at(l, i);
     n->prev = n_at->prev;
     n->next = n_at;
@@ -117,11 +112,9 @@ LLE ll_pop_at(struct linked_list* l, char** s, size_t i) {
         return LLE_INDEX;
     }
     n = ll_node_at(l, i);
-    // Pull the node out of the list.
     n->prev->next = n->next;
     n->next->prev = n->prev;
     l->len--;
-    // Put the data into s or free it.
     if (s != NULL) {
         *s = n->data;
     } else {
@@ -130,7 +123,6 @@ LLE ll_pop_at(struct linked_list* l, char** s, size_t i) {
             free(n->data);
         }
     }
-    // Free the node and we're done!
     free(n);
     return LLE_OK;
 }
