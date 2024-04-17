@@ -29,3 +29,4 @@
     1.  Write a linked-list in C.
         -   See `./c/linked_list.c` for the code.
     1.  Test your linked-list.
+        -   I kind of tested it...
