@@ -13,6 +13,9 @@
 
     -   ...I'm not sure
 
+    -   The answer key includes quite a few good ones, I won't list them
+        here.
+
 1.  What features are missing?
 
     -   Pointers
@@ -24,3 +27,5 @@
     -   Generics
 
     -   Macros
+
+    -   The answer key includes lists/arrays, and exception handling
